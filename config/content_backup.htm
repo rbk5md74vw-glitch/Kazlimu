@@ -28,10 +28,15 @@
 <p></p>
 <h2>小組分工</h2>
 <p><strong>-41323108 何丞凱-</strong></p>
-<p>五連桿的機構繪製與WeBot動態環境模擬運行。</p>
-<p><strong>-41323120 林律獻-</strong></p>
-<p>網站編輯以及維護和推送程序。</p>
-<p></p><h2>組員1</h2>
+<p>五連桿機構的繪製<span>、</span>設計與WeBot動態環境模擬運行。</p>
+<p><strong>-41323120 林律獻 &amp; 41323118 房冠宇-</strong></p>
+<p>網站美術主視圖<span>、</span>排版設計及維護和推送程序。</p>
+<p><strong>-41323110 吳秉陞 &amp; 41323130 曹人方-</strong></p>
+<p>研究《Openduck Mini》的設計與運行，與Webot環境模擬相關之協同作業。</p>
+<p><strong>-41323128 張方碩 &amp; 41323118 房冠宇-</strong></p>
+<p>作業報告製作統籌及模擬相關數據校正<span>、</span>Debug。</p>
+<p><strong></strong></p>
+<h2>組員1</h2>
 <p>接送第一次</p>
 <p>於41323120分支上推送第一次</p>
 <p>後續推送流程</p>
@@ -81,3 +86,34 @@
 </div>
 <h3>w7</h3>
 <p><span> (</span><span>2a 採 Youtube 影片簡報</span><span>):<span> </span></span><a href="https://youtu.be/iOLFP90DneY">5-bar Linkage Plotter</a><span><span> </span>與<span> </span></span><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a><span> 零組件設計繪製完成之後，如何切割零件? 為何要切割零件？ 如何利用<span> </span></span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>進行後續的控制系統設計與動態模擬 (Dynamic Simulation)？(</span><a href="https://mde.tw/cad2025/downloads/plotter_project.7z">plotter_project.7z</a><span>)</span></p>
+<p>這正是 Webots 強大之處 —— 它不僅能「模擬機器人」，還能作為控制系統設計與動態模擬的驗證平台。<br/>下面我會一步步教你如何利用 Webots 進行控制系統設計與動態模擬，從概念 → 模型 → 控制 → 驗證。</p>
+<p>🧠 一、整體流程概觀<br/>你可以把 Webots 當成是一個「虛擬實驗室」：<br/>物理模型（Webots 模擬） ←→ 控制器（你設計的控制系統）</p>
+<p>完整流程如下：<br/>1️⃣ 建立物理模型（機器人或系統）<br/>2️⃣ 分析動態特性（例如質量、摩擦、關節剛度）<br/>3️⃣ 設計控制器（PID、LQR、MPC、神經網路等）<br/>4️⃣ 透過 Webots Controller 實作控制算法<br/>5️⃣ 模擬、觀察響應、調整控制參數<br/>6️⃣ 驗證穩定性與性能（例如追蹤誤差、超越量、穩態誤差）</p>
+<p>⚙️ 二、建立可控制的物理模型<br/>在 Webots 中，每個機械系統或機器人都具備真實物理屬性：</p>
+<p><br/>每個零件（body）有質量 mass、慣性矩 inertia</p>
+<p><br/>關節（joint）定義了可動範圍、摩擦、彈性</p>
+<p><br/>馬達（motor）提供可控制的力矩或速度</p>
+<p><br/>感測器（sensor）可量測位置、速度、角度等訊號</p>
+<p><br/>💻 三、建立控制器程式（Controller）<br/>Webots 支援多種語言：Python、C、C++、MATLAB。<br/>以 Python 為例，你可以撰寫控制器來實現控制演算法。</p>
+<p><br/>這樣就能實時模擬控制力矩對系統動態的影響，觀察擺桿是否穩定。</p>
+<p>📈 四、進行動態模擬與結果分析<br/>Webots 提供即時數據可視化與資料輸出功能：</p>
+<p><br/>Display 元件：可繪圖</p>
+<p><br/>Supervisor 控制器：能紀錄數據</p>
+<p><br/>Robot.getTime()：取得模擬時間</p>
+<p><br/>save data：輸出 .csv 檔後用 MATLAB / Python 分析</p>
+<p><br/>然後可以在 Python（matplotlib）或 MATLAB 繪出時間響應曲線，分析動態行為（上升時間、超越量、穩態誤差）。</p>
+<p>🔬 五、與控制理論結合<br/>你可以在 Webots 裡驗證不同的控制器：<br/>PID 控制Webots 內部實作最簡單快速、適合低階控</p>
+<p>制狀態回授（LQR）Python / MATLAB 實作適合多變量系統</p>
+<p>Model Predictive Control (MPC)需 Python + CasADi 或 MATLAB高精度、可處理限制條件</p>
+<p>Adaptive / Neural 控制TensorFlow / PyTorch可模擬 AI 控制行為</p>
+<p>Hybrid SimulationWebots + Simulink完整控制迴路設計與真實模擬整合</p>
+<p>🧩 六、與 MATLAB/Simulink 整合（進階）<br/>如果是做控制系統設計研究（例如自動控制、機器人學課題），可以：</p>
+<p><br/>在 MATLAB Simulink 中建立控制系統模型</p>
+<p><br/>使用 Webots MATLAB API 與模擬環境連線</p>
+<p><br/>由 MATLAB 傳送控制命令給 Webots</p>
+<p><br/>Webots 回傳感測資料給 MATLAB</p>
+<p><br/>即可達到 硬體在環（HIL）/軟體在環（SIL）模擬</p>
+<p><br/>這樣能直接在 Simulink 內進行控制器設計、調參與實驗。</p>
+<p>🧠 七、應用範例<br/>類型模擬對象控制目標飛行器控制四軸飛行器姿態穩定、路徑追蹤機械手臂六軸手臂末端軌跡控制、阻抗控制移動機器人差速 / 全向車避障、SLAM、軌跡跟隨動力學研究雙擺、車輛懸吊系統非線性動態分析</p>
+<p>✅ 總結<br/>階段目標工具模型建立建立物理結構與動態模型Webots Scene Tree感測與致動加入 sensors / motorsWebots API控制設計PID / LQR / MPC / AI 控制Webots Controller / MATLAB動態模擬分析響應、驗證穩定性Webots simulation + data logging優化調參與性能提升MATLAB / Python</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lNDeVQvtSRQ?si=Ao0-ZLweWpwb6hXz" title="YouTube video player" width="560"></iframe></p>
