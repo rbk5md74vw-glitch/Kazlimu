@@ -123,3 +123,74 @@
 <p></p>
 <p><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a> 零組件切割 youtube影片:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/gDog0ccshic?si=pXHmIEHqnOCx-umF" title="YouTube video player" width="560"></iframe></p>
+<h3>w10</h3>
+<p>Webots 是什麼？有什麼特點？ 如何進行場景模擬？ 如何用 Python 進行控制系統設計？</p>
+<p><span>     <strong>Webots是一個跨平台的 3D 機器人模擬器，由 Cyberbotics 維護，面向教育、研究與研發使用。它提供世界編輯器、物理引擎、豐富的機器人/感測器/致動器模型、以及多語言控制介面（C/C++、Python、Java、MATLAB 等），從快速原型到複雜多機器人系統都能處理。Webots 自 2018 年起開源（Apache 2），並有官方教學與大量範例。</strong></span></p>
+<p><span><strong>------------------------------------------------------------------------------------------------------------</strong></span></p>
+<ul>
+<li data-end="882" data-start="777">
+<p data-end="789" data-start="780"><span style="color: #ff0000;"><strong>安裝與建立專案</strong></span></p>
+<ul data-end="882" data-start="793">
+<li data-end="882" data-start="793">
+<p data-end="882" data-start="795"><strong>下載並安裝 Webots（Windows/macOS/Linux）或使用 Docker image。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1015" data-start="884">
+<p data-end="901" data-start="887"><span style="color: #ff0000;"><strong>新建 world（場景）</strong></span></p>
+<ul data-end="1015" data-start="905">
+<li data-end="1015" data-start="905">
+<p data-end="1015" data-start="907"><strong>在 IDE 裡建立新的 world，放地板、牆、光源、物件或匯入你的 3D 模型（如 OBJ/WRL）。可以用「拖放 + 屬性面板」建立場景。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1162" data-start="1017">
+<p data-end="1031" data-start="1020"><span style="color: #ff0000;"><strong>加入機器人與控制器</strong></span></p>
+<ul data-end="1162" data-start="1035">
+<li data-end="1162" data-start="1035">
+<p data-end="1162" data-start="1037"><strong>從範例庫拖入機器人模型，或使用 Robot Builder 自行組裝。指定 controller（選擇 Python/C++ 等），可選 Supervisor 來控制整個世界。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1281" data-start="1164">
+<p data-end="1175" data-start="1167"><span style="color: #ff0000;"><strong>設定模擬參數</strong></span></p>
+<ul data-end="1281" data-start="1179">
+<li data-end="1281" data-start="1179">
+<p data-end="1281" data-start="1181"><strong>設定 time step（模擬時間步長）、物理參數（摩擦、質量）、渲染選項，以及是否啟用實時（real-time）或加速模式。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1436" data-start="1283">
+<p data-end="1296" data-start="1286"><span style="color: #ff0000;"><strong>寫控制程式與上傳</strong></span></p>
+<ul data-end="1436" data-start="1300">
+<li data-end="1436" data-start="1300">
+<p data-end="1436" data-start="1302"><strong>在 controllers 目錄下建立控制程式（例如 Python 檔），啟動模擬時 Webots 會執行該 controller。可在 IDE 看到 console 輸出與即時感測器資料。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1557" data-start="1438">
+<p data-end="1451" data-start="1441"><span style="color: #ff0000;"><strong>執行、除錯與紀錄</strong></span></p>
+<ul data-end="1557" data-start="1455">
+<li data-end="1557" data-start="1455">
+<p data-end="1557" data-start="1457"><strong>按 Run 開始模擬；可暫停、單步；使用 Supervisor 捕捉/修改場景；可錄影或輸出 log/CSV 做後續分析。<span class="" data-state="closed"><span class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem] animate-[show_150ms_ease-in]" data-testid="webpage-citation-pill"></span></span></strong></p>
+</li>
+</ul>
+</li>
+<li data-end="1672" data-start="1559">
+<p data-end="1580" data-start="1562"><span style="color: #ff0000;"><strong>進階：整合 ROS / 真機回傳</strong></span></p>
+<ul data-end="1672" data-start="1584">
+<li data-end="1672" data-start="1584">
+<p data-end="1672" data-start="1586"><strong>需要與 ROS 通訊時可啟用 Webots-ROS 接口，把模擬當成真實機器人的感測與控制端。</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>------------------------------------------------------------------------------------------------------------</strong></p>
+<p><span style="color: #000000;"><strong>      Webots 的 Python controller 是一個普通的 Python 腳本，使用 Webots 提供的<span> </span><code data-end="1876" data-start="1864">controller</code><span> </span>模組（<code data-end="1910" data-start="1880">from controller import Robot</code><span> </span>等）。控制迴圈通常以<span> </span><code data-end="1945" data-start="1922">robot.step(time_step)</code><span> </span>為同步點，必須在迴圈中定期呼叫以讓模擬前進。</strong></span></p>
+<p><b>-CODE範例-</b></p>
+<p># simple_controller.py<br/>from controller import Robot, Motor, DistanceSensor</p>
+<p>TIME_STEP = 32 # ms</p>
+<p>robot = Robot()</p>
+<p># 取得馬達與感測器<br/>left_motor = robot.getDevice('left wheel motor')<br/>right_motor = robot.getDevice('right wheel motor')<br/>left_motor.setPosition(float('inf')) # velocity control<br/>right_motor.setPosition(float('inf'))</p>
+<p>ds = robot.getDevice('ds0')<br/>ds.enable(TIME_STEP)</p>
+<p>while robot.step(TIME_STEP) != -1:<br/>dist = ds.getValue()<br/>if dist &lt; 800:<br/># 避障（簡單反向轉向）<br/>left_motor.setVelocity(-2.0)<br/>right_motor.setVelocity(2.0)<br/>else:<br/>left_motor.setVelocity(3.0)<br/>right_motor.setVelocity(3.0)</p>
