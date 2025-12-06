@@ -258,6 +258,26 @@
 <li>匯出為 OBJ 或 STL → Webots</li>
 </ul>
 <p><strong><span style="color: #808080;">丨</span>適用於複雜模型與材質處理。</strong></p>
-<p><strong>------------------------------------------------------------------------------------------------------------</strong></p>
+<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p>📌<strong> Webots </strong><strong>無法直接匯入的內容</strong></p>
+<ul>
+<li>STEP / IGES (需透過其他軟體轉換<span>)</span></li>
+<li>所有<span> CAD </span>參數式模型（需轉<span> mesh</span>）</li>
+<li>複雜材質、<span>UV </span>資訊（需要<span> blender </span>處理）</li>
+</ul>
+<p>📝 <strong>結論</strong></p>
+<p>✔ Webots 模型可程式化產生</p>
+<p>生成<span> .wbt </span>或<span> .proto</span></p>
+<p>或用<span> Supervisor API </span>動態插入節點</p>
+<p>✔ CAD 模型可匯入<span> Webots</span>，但不能直接一鍵轉出</p>
+<p>可行流程：</p>
+<p><strong>CAD → STL / OBJ → Webots</strong></p>
+<p>或</p>
+<p><strong>CAD → URDF → Webots</strong></p>
+<p>或</p>
+<p><strong>CAD → Blender → Webots</strong></p>
+<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p><span> </span></p>
+<p><strong>-</strong></p>
 <p data-pm-slice="1 1 []"><strong> </strong></p>
 <p><strong data-end="163" data-start="136"></strong></p>
