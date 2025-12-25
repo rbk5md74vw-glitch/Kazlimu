@@ -2,7 +2,7 @@
         <head>
         <title>cad2025_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -131,11 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-<<<<<<< HEAD
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='組員.html'>組員</a><ul class='dropdown'><li><a href='成員名單.html'>成員名單</a><li><a href='小組分工.html'>小組分工</a><li><a href='組員1.html'>組員1</a><li><a href='組員2 : 41323108何丞凱.html'>組員2 : 41323108何丞凱</a><li><a href='組員3.html'>組員3</a><li><a href='組員4.html'>組員4</a><li><a href='組員5.html'>組員5</a><li><a href='組員6.html'>組員6</a><li class='has-children'><a href='cad2025進度.html'>cad2025進度</a><ul class='dropdown'><li><a href='w3.html'>w3</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='Plotter Achievements.html'>Plotter Achievements</a></li>
-=======
                      <li><a href='About.html'>About</a><li class='has-children'><a href='組員.html'>組員</a><ul class='dropdown'><li><a href='成員名單.html'>成員名單</a><li><a href='小組分工.html'>小組分工</a><li><a href='組員1.html'>組員1</a><li><a href='組員2 : 41323108 何丞凱.html'>組員2 : 41323108 何丞凱</a><li><a href='組員3.html'>組員3</a><li><a href='組員4.html'>組員4</a><li><a href='組員5.html'>組員5</a><li><a href='組員6.html'>組員6</a><li class='has-children'><a href='cad2025進度.html'>cad2025進度</a><ul class='dropdown'><li><a href='w3.html'>w3</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w14.html'>w14</a></li></ul><li><a href='Plotter Achievement.html'>Plotter Achievement</a></li>
->>>>>>> origin/main
                       </ul>
                 </nav>
               </div>
@@ -146,8 +142,96 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">組員5 << <a href='組員5.html'>Previous</a> <a href='cad2025進度.html'>Next</a> >> cad2025進度<br /><h1>組員6</h1>
-<br />組員5 << <a href='組員5.html'>Previous</a> <a href='cad2025進度.html'>Next</a> >> cad2025進度</div>
+    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='Plotter Achievement.html'>Next</a> >> Plotter Achievement<br /><h1>w14</h1>
+<p>webots 的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出 webots 的場景模型？</p>
+<p><strong data-end="26" data-start="5"></strong><strong><span>✅<span style="color: #ff0000;">1. Webots 是否能用程式方法建立模型？</span></span></strong></p>
+<p data-end="175" data-start="164">可以，有兩種主要方式：</p>
+<p data-end="216" data-start="177"><span><strong><span>#(A)</span> <span>直接產生 <span>.wbt</span> 或 <span>.proto</span> 檔（最常用的方法）</span></strong></span></p>
+<p data-end="295" data-start="217"><strong><span>      </span></strong><span>Webots 的世界檔</span>案 *.wbt 與模型 *.proto 都是 純文字格式（基於 JSON-Like 的 Scene Tree 語法）。</p>
+<p data-end="334" data-start="297">你可以用任何語言寫程式（Python / C++ / JS / 等）產生</p>
+<p data-end="334" data-start="297">下面是程式範例:</p>
+<p data-end="334" data-start="297"><span><span style="color: #ff6600;">Robot</span> </span>{<br/>  <span style="color: #99cc00;">translation </span><span style="color: #993300;">0 0 0</span><br/>  children [<br/>    Shape {<br/>     <span style="color: #99cc00;"> geometry </span>Box {<br/>       <span style="color: #99cc00;"> size </span><span style="color: #993300;">1 1 1</span><br/>      }<br/>    }<br/>  ]<br/>}</p>
+<p><span style="color: #808080;"><strong>丨</strong></span>只要輸出成<span style="color: #ff00ff;"> .wbt</span> 或 <span style="color: #ff00ff;">.proto </span>就能直接被 Webots 載入。</p>
+<ul>
+<li data-pm-slice="1 1 []">用途：大量產生物件、程序化地形、建立大型環境、模型版本控制等。<strong></strong></li>
+</ul>
+<p data-pm-slice="1 1 []"><strong>#(B) <span>在 Webots 中用 Supervisor API 動態建立節點</span></strong></p>
+<p><strong><span>     </span><span> Supervisor</span></strong><span> 程式可在 <strong>simulation</strong> <strong>runtime </strong>插入整個 <strong>Node</strong></span>。</p>
+<p>以下是python程式範例:</p>
+<p><span style="color: #ff00ff;">from </span>controller <span><span style="color: #ff00ff;">import</span> </span>Supervisor<br/><span><span style="color: #ff9900;">super</span> </span>= Supervisor()</p>
+<p>root = <span style="color: #ff9900;">super</span>.getRoot()<br/>children = root.getField(<span style="color: #99cc00;">"children"</span>)</p>
+<p>node_string =<span> <span style="color: #99cc00;">"""</span></span><br/><span style="color: #99cc00;">DEF Box Shape {</span><br/><span style="color: #99cc00;">  geometry Box {</span><br/><span>    <span style="color: #99cc00;">size</span><span style="color: #993300;"> 1 1 1</span></span><br/><span> <span style="color: #99cc00;"> }</span></span><br/><span style="color: #99cc00;">}</span><br/><span style="color: #99cc00;">"""</span></p>
+<p>children.importMFNodeFromString(node_string)</p>
+<p data-pm-slice="1 1 []"><strong><span style="color: #808080;">丨</span>可以動態加入：</strong></p>
+<ul>
+<li><strong>Shape、Solid、Robot</strong></li>
+<li><strong>完整的 Prototype（PROTO）</strong></li>
+</ul>
+<p><strong>但不適合建立非常複雜的場景（效率較差）。</strong></p>
+<p data-pm-slice="1 1 []"><span><strong>✅ <span style="color: #ff0000;">2. 能不能從 CAD 套件直接轉出 Webots 場景？</span></strong></span></p>
+<p><strong>    </strong> 沒有官方支援<strong>「CAD → Webots」</strong>的直接匯出器。</p>
+<p>但可以透過以下方式完成：</p>
+<p><strong>(A) CAD → STL/OBJ → Webots（最常用）</strong></p>
+<p>    大部分 <strong>CAD（SolidWorks、Fusion360、Creo、Inventor、Rhino…）</strong>都能輸出：</p>
+<ul>
+<li><strong>.stl</strong></li>
+<li><strong>.obj</strong></li>
+</ul>
+<p><strong>Webots</strong> 可直接把這些模型載入成 <strong>Shape</strong>。</p>
+<p>    程式範例:</p>
+<p data-pm-slice="1 1 []">Shape {</p>
+<p>  geometry IndexedFaceSet {</p>
+<p>    coord Coordinate { point [...] }</p>
+<p>  }</p>
+<p>}</p>
+<p></p>
+<p><strong>或是使用:</strong></p>
+<p></p>
+<p data-pm-slice="1 1 []"><span style="color: #ffcc00;">Mesh </span>{</p>
+<p>  <span style="color: #993300;">url </span><span style="color: #99cc00;">"model.stl"</span></p>
+<p>}</p>
+<p><strong><span style="color: #808080;">丨</span>適用於<span>靜態物件</span>或<span>機械零件</span>。</strong></p>
+<p data-pm-slice="1 1 []"><strong>(B) CAD → URDF/SDF → Webots</strong></p>
+<p><strong>   </strong> 如果你的模型是機器（多關節）：</p>
+<p><strong><span>1️⃣</span></strong> 用 <strong>CAD</strong>（例如<strong> SolidWorks + SW2URDF plugin</strong>）匯出 URDF</p>
+<p>2️⃣ Webots 可直接 import URDF → 自動轉成 PROTO 機器</p>
+<p><strong><span style="color: #808080;">丨</span>適用於帶關節、連桿、馬達的模型。</strong></p>
+<p><strong></strong></p>
+<p><strong>(C) CAD → Blender → Webots</strong></p>
+<p><strong>   </strong> Blender 可作為中間站：</p>
+<ul>
+<li>匯入 STEP/IGES</li>
+<li>修復 mesh（decimate、合併、法向調整）</li>
+<li>匯出為 OBJ 或 STL → Webots</li>
+</ul>
+<p><strong><span style="color: #808080;">丨</span>適用於複雜模型與材質處理。</strong></p>
+<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p>📌<strong> Webots </strong><strong>無法直接匯入的內容</strong></p>
+<ul>
+<li>STEP / IGES (需透過其他軟體轉換<span>)</span></li>
+<li>所有<span> CAD </span>參數式模型（需轉<span> mesh</span>）</li>
+<li>複雜材質、<span>UV </span>資訊（需要<span> blender </span>處理）</li>
+</ul>
+<p>📝 <strong>結論</strong></p>
+<p>✔ Webots 模型可程式化產生</p>
+<p>生成<span> .wbt </span>或<span> .proto</span></p>
+<p>或用<span> Supervisor API </span>動態插入節點</p>
+<p>✔ CAD 模型可匯入<span> Webots</span>，但不能直接一鍵轉出</p>
+<p>可行流程：</p>
+<p><strong>CAD → STL / OBJ → Webots</strong></p>
+<p>或</p>
+<p><strong>CAD → URDF → Webots</strong></p>
+<p>或</p>
+<p><strong>CAD → Blender → Webots</strong></p>
+<p><strong>-----------------------------------------------------------------------------------------------------------</strong></p>
+<p><span> </span></p>
+<p><strong>-</strong></p>
+<p data-pm-slice="1 1 []"><strong> </strong></p>
+<p><strong data-end="163" data-start="136"></strong></p>
+<p>=======</p>
+<p><img alt="" height="206" src="./../images/螢幕擷取畫面 2025-10-19 164247.png" width="368"/></p>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 41323108</p>
+<br />w10 << <a href='w10.html'>Previous</a> <a href='Plotter Achievement.html'>Next</a> >> Plotter Achievement</div>
         
     <!-- footer -->
       <div class="container">
