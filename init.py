@@ -1,4 +1,4 @@
-Gimport os
+import os
 
 """CMSimfly Initialization setup
 """
